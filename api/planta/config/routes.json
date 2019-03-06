@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/plantas",
+      "handler": "Planta.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/plantas/count",
+      "handler": "Planta.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/plantas/:_id",
+      "handler": "Planta.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/plantas",
+      "handler": "Planta.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/plantas/:_id",
+      "handler": "Planta.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/plantas/:_id",
+      "handler": "Planta.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

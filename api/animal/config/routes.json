@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/animals",
+      "handler": "Animal.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/animals/count",
+      "handler": "Animal.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/animals/:_id",
+      "handler": "Animal.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/animals",
+      "handler": "Animal.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/animals/:_id",
+      "handler": "Animal.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/animals/:_id",
+      "handler": "Animal.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

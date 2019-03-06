@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/insectos",
+      "handler": "Insecto.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/insectos/count",
+      "handler": "Insecto.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/insectos/:_id",
+      "handler": "Insecto.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/insectos",
+      "handler": "Insecto.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/insectos/:_id",
+      "handler": "Insecto.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/insectos/:_id",
+      "handler": "Insecto.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

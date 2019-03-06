@@ -1,0 +1,657 @@
+type Animal {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  nombre: String
+}
+
+type AnimalAggregator {
+  count: Int
+}
+
+type AnimalConnection {
+  values: [Animal]
+  groupBy: AnimalGroupBy
+  aggregate: AnimalAggregator
+}
+
+type AnimalConnection_id {
+  key: ID
+  connection: AnimalConnection
+}
+
+type AnimalConnectionCreatedAt {
+  key: DateTime
+  connection: AnimalConnection
+}
+
+type AnimalConnectionNombre {
+  key: String
+  connection: AnimalConnection
+}
+
+type AnimalConnectionUpdatedAt {
+  key: DateTime
+  connection: AnimalConnection
+}
+
+type AnimalGroupBy {
+  _id: [AnimalConnection_id]
+  createdAt: [AnimalConnectionCreatedAt]
+  updatedAt: [AnimalConnectionUpdatedAt]
+  nombre: [AnimalConnectionNombre]
+}
+
+input AnimalInput {
+  nombre: String
+}
+
+input createAnimalInput {
+  data: AnimalInput
+}
+
+type createAnimalPayload {
+  animal: Animal
+}
+
+input createInsectoInput {
+  data: InsectoInput
+}
+
+type createInsectoPayload {
+  insecto: Insecto
+}
+
+input createPlantaInput {
+  data: PlantaInput
+}
+
+type createPlantaPayload {
+  planta: Planta
+}
+
+input createRoleInput {
+  data: RoleInput
+}
+
+type createRolePayload {
+  role: UsersPermissionsRole
+}
+
+input createUserInput {
+  data: UserInput
+}
+
+type createUserPayload {
+  user: UsersPermissionsUser
+}
+
+"""
+The `DateTime` scalar represents a date and time following the ISO 8601 standard
+"""
+scalar DateTime
+
+input deleteAnimalInput {
+  where: InputID
+}
+
+type deleteAnimalPayload {
+  animal: Animal
+}
+
+input deleteInsectoInput {
+  where: InputID
+}
+
+type deleteInsectoPayload {
+  insecto: Insecto
+}
+
+input deletePlantaInput {
+  where: InputID
+}
+
+type deletePlantaPayload {
+  planta: Planta
+}
+
+input deleteRoleInput {
+  where: InputID
+}
+
+type deleteRolePayload {
+  role: UsersPermissionsRole
+}
+
+input deleteUserInput {
+  where: InputID
+}
+
+type deleteUserPayload {
+  user: UsersPermissionsUser
+}
+
+input editAnimalInput {
+  nombre: String
+}
+
+input editFileInput {
+  name: String
+  hash: String
+  sha256: String
+  ext: String
+  mime: String
+  size: String
+  url: String
+  provider: String
+  public_id: String
+  related: [ID]
+}
+
+input editInsectoInput {
+  nombre: String
+}
+
+input editPlantaInput {
+  nombre: String
+}
+
+input editRoleInput {
+  name: String
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+}
+
+input editUserInput {
+  username: String
+  email: String
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+}
+
+input FileInput {
+  name: String!
+  hash: String!
+  sha256: String
+  ext: String
+  mime: String!
+  size: String!
+  url: String!
+  provider: String!
+  public_id: String
+  related: [ID]
+}
+
+input InputID {
+  id: ID!
+}
+
+type Insecto {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  nombre: String
+}
+
+type InsectoAggregator {
+  count: Int
+}
+
+type InsectoConnection {
+  values: [Insecto]
+  groupBy: InsectoGroupBy
+  aggregate: InsectoAggregator
+}
+
+type InsectoConnection_id {
+  key: ID
+  connection: InsectoConnection
+}
+
+type InsectoConnectionCreatedAt {
+  key: DateTime
+  connection: InsectoConnection
+}
+
+type InsectoConnectionNombre {
+  key: String
+  connection: InsectoConnection
+}
+
+type InsectoConnectionUpdatedAt {
+  key: DateTime
+  connection: InsectoConnection
+}
+
+type InsectoGroupBy {
+  _id: [InsectoConnection_id]
+  createdAt: [InsectoConnectionCreatedAt]
+  updatedAt: [InsectoConnectionUpdatedAt]
+  nombre: [InsectoConnectionNombre]
+}
+
+input InsectoInput {
+  nombre: String
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Animal | createAnimalPayload | updateAnimalPayload | deleteAnimalPayload | AnimalConnection | AnimalAggregator | AnimalGroupBy | AnimalConnection_id | AnimalConnectionCreatedAt | AnimalConnectionUpdatedAt | AnimalConnectionNombre | Insecto | createInsectoPayload | updateInsectoPayload | deleteInsectoPayload | InsectoConnection | InsectoAggregator | InsectoGroupBy | InsectoConnection_id | InsectoConnectionCreatedAt | InsectoConnectionUpdatedAt | InsectoConnectionNombre | Planta | createPlantaPayload | updatePlantaPayload | deletePlantaPayload | PlantaConnection | PlantaAggregator | PlantaGroupBy | PlantaConnection_id | PlantaConnectionCreatedAt | PlantaConnectionUpdatedAt | PlantaConnectionNombre | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
+
+type Mutation {
+  createAnimal(input: createAnimalInput): createAnimalPayload
+  updateAnimal(input: updateAnimalInput): updateAnimalPayload
+  deleteAnimal(input: deleteAnimalInput): deleteAnimalPayload
+  createInsecto(input: createInsectoInput): createInsectoPayload
+  updateInsecto(input: updateInsectoInput): updateInsectoPayload
+  deleteInsecto(input: deleteInsectoInput): deleteInsectoPayload
+  createPlanta(input: createPlantaInput): createPlantaPayload
+  updatePlanta(input: updatePlantaInput): updatePlantaPayload
+  deletePlanta(input: deletePlantaInput): deletePlantaPayload
+
+  """Create a new role"""
+  createRole(input: createRoleInput): createRolePayload
+
+  """Update an existing role"""
+  updateRole(input: updateRoleInput): updateRolePayload
+
+  """Delete an existing role"""
+  deleteRole(input: deleteRoleInput): deleteRolePayload
+
+  """Create a new user"""
+  createUser(input: createUserInput): createUserPayload
+
+  """Update an existing user"""
+  updateUser(input: updateUserInput): updateUserPayload
+
+  """Delete an existing user"""
+  deleteUser(input: deleteUserInput): deleteUserPayload
+  upload(refId: ID, ref: String, source: String, file: Upload!): UploadFile!
+}
+
+type Planta {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  nombre: String
+}
+
+type PlantaAggregator {
+  count: Int
+}
+
+type PlantaConnection {
+  values: [Planta]
+  groupBy: PlantaGroupBy
+  aggregate: PlantaAggregator
+}
+
+type PlantaConnection_id {
+  key: ID
+  connection: PlantaConnection
+}
+
+type PlantaConnectionCreatedAt {
+  key: DateTime
+  connection: PlantaConnection
+}
+
+type PlantaConnectionNombre {
+  key: String
+  connection: PlantaConnection
+}
+
+type PlantaConnectionUpdatedAt {
+  key: DateTime
+  connection: PlantaConnection
+}
+
+type PlantaGroupBy {
+  _id: [PlantaConnection_id]
+  createdAt: [PlantaConnectionCreatedAt]
+  updatedAt: [PlantaConnectionUpdatedAt]
+  nombre: [PlantaConnectionNombre]
+}
+
+input PlantaInput {
+  nombre: String
+}
+
+type Query {
+  animal(id: ID!): Animal
+  animals(sort: String, limit: Int, start: Int, where: JSON): [Animal]
+  animalsConnection(sort: String, limit: Int, start: Int, where: JSON): AnimalConnection
+  insecto(id: ID!): Insecto
+  insectos(sort: String, limit: Int, start: Int, where: JSON): [Insecto]
+  insectosConnection(sort: String, limit: Int, start: Int, where: JSON): InsectoConnection
+  planta(id: ID!): Planta
+  plantas(sort: String, limit: Int, start: Int, where: JSON): [Planta]
+  plantasConnection(sort: String, limit: Int, start: Int, where: JSON): PlantaConnection
+  files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
+  role(id: ID!): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsRole]
+  rolesConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsRoleConnection
+  user(id: ID!): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+  usersConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsUserConnection
+  me: UsersPermissionsMe
+}
+
+input RoleInput {
+  name: String!
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+}
+
+input updateAnimalInput {
+  where: InputID
+  data: editAnimalInput
+}
+
+type updateAnimalPayload {
+  animal: Animal
+}
+
+input updateInsectoInput {
+  where: InputID
+  data: editInsectoInput
+}
+
+type updateInsectoPayload {
+  insecto: Insecto
+}
+
+input updatePlantaInput {
+  where: InputID
+  data: editPlantaInput
+}
+
+type updatePlantaPayload {
+  planta: Planta
+}
+
+input updateRoleInput {
+  where: InputID
+  data: editRoleInput
+}
+
+type updateRolePayload {
+  role: UsersPermissionsRole
+}
+
+input updateUserInput {
+  where: InputID
+  data: editUserInput
+}
+
+type updateUserPayload {
+  user: UsersPermissionsUser
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+type UploadFile {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  hash: String!
+  sha256: String
+  ext: String
+  mime: String!
+  size: String!
+  url: String!
+  provider: String!
+  public_id: String
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UploadFileAggregator {
+  count: Int
+}
+
+type UploadFileConnection {
+  values: [UploadFile]
+  groupBy: UploadFileGroupBy
+  aggregate: UploadFileAggregator
+}
+
+type UploadFileConnection_id {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionExt {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHash {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionMime {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionName {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionPublic_id {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSha256 {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSize {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileGroupBy {
+  _id: [UploadFileConnection_id]
+  createdAt: [UploadFileConnectionCreatedAt]
+  updatedAt: [UploadFileConnectionUpdatedAt]
+  name: [UploadFileConnectionName]
+  hash: [UploadFileConnectionHash]
+  sha256: [UploadFileConnectionSha256]
+  ext: [UploadFileConnectionExt]
+  mime: [UploadFileConnectionMime]
+  size: [UploadFileConnectionSize]
+  url: [UploadFileConnectionUrl]
+  provider: [UploadFileConnectionProvider]
+  public_id: [UploadFileConnectionPublic_id]
+}
+
+input UserInput {
+  username: String!
+  email: String!
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+}
+
+type UsersPermissionsMe {
+  _id: ID!
+  username: String!
+  email: String!
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsMeRole
+}
+
+type UsersPermissionsMeRole {
+  _id: ID!
+  name: String!
+  description: String
+  type: String
+}
+
+type UsersPermissionsPermission {
+  _id: ID!
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsRole {
+  _id: ID!
+  name: String!
+  description: String
+  type: String
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UsersPermissionsRoleAggregator {
+  count: Int
+}
+
+type UsersPermissionsRoleConnection {
+  values: [UsersPermissionsRole]
+  groupBy: UsersPermissionsRoleGroupBy
+  aggregate: UsersPermissionsRoleAggregator
+}
+
+type UsersPermissionsRoleConnection_id {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionDescription {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionName {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionType {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleGroupBy {
+  _id: [UsersPermissionsRoleConnection_id]
+  name: [UsersPermissionsRoleConnectionName]
+  description: [UsersPermissionsRoleConnectionDescription]
+  type: [UsersPermissionsRoleConnectionType]
+}
+
+type UsersPermissionsUser {
+  _id: ID!
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsUserAggregator {
+  count: Int
+}
+
+type UsersPermissionsUserConnection {
+  values: [UsersPermissionsUser]
+  groupBy: UsersPermissionsUserGroupBy
+  aggregate: UsersPermissionsUserAggregator
+}
+
+type UsersPermissionsUserConnection_id {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionBlocked {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionConfirmed {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionProvider {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionRole {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUsername {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserGroupBy {
+  _id: [UsersPermissionsUserConnection_id]
+  username: [UsersPermissionsUserConnectionUsername]
+  email: [UsersPermissionsUserConnectionEmail]
+  provider: [UsersPermissionsUserConnectionProvider]
+  confirmed: [UsersPermissionsUserConnectionConfirmed]
+  blocked: [UsersPermissionsUserConnectionBlocked]
+  role: [UsersPermissionsUserConnectionRole]
+}
