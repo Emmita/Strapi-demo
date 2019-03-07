@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"demo_database.users-permissions_role"},{"v":2,"unique":true,"key":{"type":1},"name":"type_1","ns":"demo_database.users-permissions_role","background":true}],"uuid":"eb568236e67d43e3b0f0f53c81acd6e3"}
